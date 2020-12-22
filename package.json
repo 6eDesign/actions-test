@@ -6,6 +6,26 @@
   "publishConfig": {
     "access": "public"
   },
+  "release": {
+    "branches": [
+      "master"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "dist/**/*.{js,css}",
+            "docs",
+            "package.json"
+          ],
+          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ]
+    ]
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,5 +39,10 @@
   "bugs": {
     "url": "https://github.com/6eDesign/actions-test/issues"
   },
-  "homepage": "https://github.com/6eDesign/actions-test#readme"
+  "homepage": "https://github.com/6eDesign/actions-test#readme",
+  "devDependencies": {
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/release-notes-generator": "^9.0.1"
+  }
 }
